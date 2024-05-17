@@ -1,3 +1,14 @@
+<?php
+// verificar se a sessão existe
+//Inicia sessão
+session_start();
+if (!isset($_SESSION["usuario_logado"]) && $_SESSION["usuario_logado"] != true) 
+{
+header("Location: index.html");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -256,8 +267,72 @@ footer p {
         max-width: 90%;
     }
 }
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  font-family: 'Roboto Mono', monospace;
+  display: flex; /* Flexbox para alinhamento horizontal */
+  justify-content: space-between; /* Espaço entre o email e o botão */
+  align-items: center; /* Alinhamento vertical */
+}
+
+.logout-button {
+  background-color: transparent;
+  border: none;
+  color: #00b4ff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  text-align: center; /* Centraliza o texto no botão */
+}
+
+.logout-button:hover {
+  background-color: rgba(0, 180, 255, 0.2);
+}
+
+.logout-button .icon {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+}
+
+/* Estilos adicionais para um visual tecnológico */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00b4ff; /* Cor azul vibrante */
+  z-index: -1; /* Fica atrás do conteúdo */
+}
+
+footer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00b4ff;
+  z-index: -1;
+}
 </style>
 <body>
+
+<footer>
+  <br>
+  <?php echo $_SESSION['usuario_email']?>
+<a href="logout.php">SAIR</a>
+</footer>
+      
     <header>
         <div class="container">
             <h1>Sua Empresa de Tecnologia</h1>
@@ -286,32 +361,32 @@ footer p {
                 <h2>Nossos Produtos</h2>
                 <div class="produtos-grid">
                     <div class="produto">
-                        <img src="img/roteador.jpg" alt="Roteador">
+                        <img src="img/roteador.png" alt="Roteador">
                         <h3>Roteadores</h3>
                         <p>Conexões rápidas e estáveis para sua rede.</p>
                     </div>
                     <div class="produto">
-                        <img src="img/cabos.jpg" alt="Cabos">
+                        <img src="img/cabo.png" alt="Cabos">
                         <h3>Cabos</h3>
                         <p>Diversos tipos de cabos para atender suas necessidades.</p>
                     </div>
                     <div class="produto">
-                        <img src="img/switch.jpg" alt="Switch">
+                        <img src="img/switch.png" alt="Switch">
                         <h3>Switches</h3>
                         <p>Gerencie sua rede com eficiência e segurança.</p>
                     </div>
                     <div class="produto">
-                        <img src="img/rack.jpg" alt="Rack">
+                        <img src="img/racks.png" alt="Rack">
                         <h3>Racks</h3>
                         <p>Organização e proteção para seus equipamentos.</p>
                     </div>
                     <div class="produto">
-                        <img src="img/rj45.jpg" alt="RJ-45">
+                        <img src="img/rj45.png" alt="RJ-45">
                         <h3>Conectores RJ-45</h3>
                         <p>Conectores de alta qualidade para suas conexões.</p>
                     </div>
                     <div class="produto">
-                        <img src="img/rj11.jpg" alt="RJ-11">
+                        <img src="img/rj11.png" alt="RJ-11">
                         <h3>Conectores RJ-11</h3>
                         <p>Conectores para telefonia e outros dispositivos.</p>
                     </div>
@@ -364,6 +439,8 @@ footer p {
 
         <button type="submit">Enviar Mensagem</button>
       </form>
+
+    
     </div>
   </div>
 </section>

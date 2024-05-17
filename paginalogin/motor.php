@@ -18,11 +18,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $stmt->execute();
 
         // Redireciona para a tela de cadastro.html
-        header('Location: ./cadastro.php?cod=1');
+        header('Location: ./painel.php?cod=1');
 
     }catch(PDOException $e){
         
-        header('Location: ./cadastro.php?cod=2');
+        header('Location: ./painel.php?cod=2');
 
     }
 
