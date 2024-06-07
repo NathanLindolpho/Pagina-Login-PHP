@@ -16,6 +16,6 @@ Observação: Este projeto serve como base para desenvolvimento e pode ser expan
 
 Público-Alvo: Desenvolvedores web que buscam uma solução completa e segura para autenticação de usuários em seus projetos, com código limpo, documentado e pronto para customização.
 
-Contribuições: Pull requests são bem-vindas para aprimorar funcionalidades, segurança e performance do sistema!
+
 
 
